@@ -41,8 +41,16 @@ public class Aviao : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        this.fisica.simulated = false;
-        this.diretor.FinalizarJogo();
+
+        if (collision.transform.name == "StarGoldCoin(Clone)")
+        {
+            
+        }
+        else { 
+            this.fisica.simulated = false;
+            this.diretor.FinalizarJogo();        
+        }
+
     }
 
     private void Impulsionar() {
