@@ -9,12 +9,12 @@ public class Pontuacao : MonoBehaviour
     [SerializeField]
     private Text textoPontuacao;    
 
-    public void AdicionarPontos(int multiplicador, AudioSource pAudio)
+    public void AdicionarPontos(int multiplicador, string audioNome)
     {
 
         this.pontos += 1 * multiplicador;
         this.textoPontuacao.text = this.pontos.ToString();
-        pAudio.Play();
+        GerenciadorAudio.TocarSom(audioNome);
 
     }
 

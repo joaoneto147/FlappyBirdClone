@@ -7,15 +7,13 @@ public class Coins : MonoBehaviour
     [SerializeField]
     private float velocidade = 0.5f;
     [SerializeField]
-    private float variacaoDaPosicY;
+    private float variacaoDaPosicY = 0;
     private Pontuacao pontuacao;    
-    private AudioSource audioCoin;
 
     private void Awake()
     {
         this.transform.Translate(Vector3.up * Random.Range(-variacaoDaPosicY, variacaoDaPosicY));
-        this.pontuacao = GameObject.FindObjectOfType<Pontuacao>();
-        this.audioCoin = this.GetComponent<AudioSource>();
+        this.pontuacao = GameObject.FindObjectOfType<Pontuacao>();        
     }
 
     // Update is called once per frame
@@ -26,7 +24,7 @@ public class Coins : MonoBehaviour
 
     public void ColetarCoin()
     {
-        this.pontuacao.AdicionarPontos(2, this.audioCoin);
+        this.pontuacao.AdicionarPontos(2, "coletarMoeda");
         this.Destruir();
     }
 
@@ -39,9 +37,6 @@ public class Coins : MonoBehaviour
         {            
             this.ColetarCoin();
         }
-
-        this.audioCoin.Play();
-
     }
 
     public void Destruir()

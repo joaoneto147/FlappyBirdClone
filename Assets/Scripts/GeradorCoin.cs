@@ -7,7 +7,7 @@ public class GeradorCoin : MonoBehaviour
     [SerializeField]
     private float tempoParaGerar;
     [SerializeField]
-    private GameObject manualDeInstrucoes;
+    private GameObject manualDeInstrucoes = null;
     private float cronometro;
 
     private void Awake()

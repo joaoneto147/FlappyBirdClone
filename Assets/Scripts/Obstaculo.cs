@@ -10,8 +10,7 @@ public class Obstaculo : MonoBehaviour
     private float variacaoDaPosicY;
     private Vector3 posicaoAviao;
     private bool pontuado = false;
-    private Pontuacao pontuacao;
-    private AudioSource audioObstaculo;
+    private Pontuacao pontuacao;    
 
     private void Start()
     {
@@ -21,8 +20,7 @@ public class Obstaculo : MonoBehaviour
     private void Awake()
     {
         this.transform.Translate(Vector3.up * Random.Range(-variacaoDaPosicY, variacaoDaPosicY));
-        this.pontuacao = GameObject.FindObjectOfType<Pontuacao>();
-        this.audioObstaculo = this.GetComponent<AudioSource>();
+        this.pontuacao = GameObject.FindObjectOfType<Pontuacao>();        
     }
 
     // Update is called once per frame
@@ -33,7 +31,7 @@ public class Obstaculo : MonoBehaviour
         if ((this.transform.position.x < posicaoAviao.x) && !this.pontuado)
         {
             this.pontuado = true;
-            this.pontuacao.AdicionarPontos(1, audioObstaculo);
+            this.pontuacao.AdicionarPontos(1, "pontuacao");
         }
     }
 
